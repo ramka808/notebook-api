@@ -20,6 +20,18 @@ class NotebookController extends Controller
      *     path="/api/v1/notebook",
      *     summary="Получить список всех записей",
      *     tags={"Notebook"},
+     *     @OA\Parameter(
+     *         name="page",
+     *         in="query",
+     *         description="Номер страницы",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="integer",
+     *             default=1,
+     *             minimum=1,
+     *             example=1
+     *         )
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="Успешный ответ",

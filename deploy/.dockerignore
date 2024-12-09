@@ -1,0 +1,3 @@
+/vendor
+/deploy/docker-compose.yml
+/deploy/Dockerfile

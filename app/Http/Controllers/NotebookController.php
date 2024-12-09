@@ -17,7 +17,7 @@ class NotebookController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/notebook",
+     *     path="/api/v1/notebook",
      *     summary="Получить список всех записей",
      *     tags={"Notebook"},
      *     @OA\Response(
@@ -72,7 +72,7 @@ class NotebookController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/api/notebook",
+     *     path="/api/v1/notebook",
      *     summary="Создать новую запись",
      *     tags={"Notebook"},
      *     @OA\RequestBody(
@@ -123,7 +123,7 @@ class NotebookController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/notebook/{id}",
+     *     path="/api/v1/notebook/{id}",
      *     summary="Получить запись по ID",
      *     tags={"Notebook"},
      *     @OA\Parameter(
@@ -154,7 +154,7 @@ class NotebookController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/api/notebook/{id}",
+     *     path="/api/v1/notebook/{id}",
      *     summary="Обновить существующую запись",
      *     tags={"Notebook"},
      *     @OA\Parameter(
@@ -210,7 +210,7 @@ class NotebookController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/notebook/{id}",
+     *     path="/api/v1/notebook/{id}",
      *     summary="Удалить запись",
      *     tags={"Notebook"},
      *     @OA\Parameter(

@@ -6,13 +6,13 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/notebook": {
+        "/api/v1/notebook": {
             "get": {
                 "tags": [
                     "Notebook"
                 ],
                 "summary": "Получить список всех записей",
-                "operationId": "07d9faccef6862ea6c998ad98628713c",
+                "operationId": "3278597f70ffcf3df60a694e0ff0d1c1",
                 "responses": {
                     "200": {
                         "description": "Успешный ответ",
@@ -97,7 +97,7 @@
                     "Notebook"
                 ],
                 "summary": "Создать новую запись",
-                "operationId": "0e540f5ae11dd23bdd7a205f31752561",
+                "operationId": "f737e96f4910ff283e75bc7e05c8379f",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -150,13 +150,13 @@
                 }
             }
         },
-        "/api/notebook/{id}": {
+        "/api/v1/notebook/{id}": {
             "get": {
                 "tags": [
                     "Notebook"
                 ],
                 "summary": "Получить запись по ID",
-                "operationId": "f36e853801c8d5cc4a29bfa458c17be8",
+                "operationId": "a07418b0decb4969394e79f597aa543f",
                 "parameters": [
                     {
                         "name": "id",
@@ -182,7 +182,7 @@
                     "Notebook"
                 ],
                 "summary": "Обновить существующую запись",
-                "operationId": "3a5b73617da560c48038c475630084b5",
+                "operationId": "36d82d17bc829073e309f8316e61a7b1",
                 "parameters": [
                     {
                         "name": "id",
@@ -250,7 +250,7 @@
                     "Notebook"
                 ],
                 "summary": "Удалить запись",
-                "operationId": "751511c13de7f2b0aad765f50f67e208",
+                "operationId": "6be314584e9cc2d22f7dff1d0b286f21",
                 "parameters": [
                     {
                         "name": "id",

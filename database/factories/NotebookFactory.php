@@ -20,11 +20,11 @@ class NotebookFactory extends Factory
     {
         
         return [
-            'fio' => $this->faker->name,
-            'company' => $this->faker->company,
-            'phone' => $this->faker->phoneNumber,
-            'email' => $this->faker->unique()->safeEmail,
-            'date_of_birth' => $this->faker->date,
+            'fio' => fake()->name(),
+            'company' => fake()->company(),
+            'phone' => fake()->phoneNumber(),
+            'email' => fake()->unique()->safeEmail(),
+            'date_of_birth' => fake()->date(),
             'photo' => null, 
         ];
     }

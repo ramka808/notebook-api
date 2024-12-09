@@ -1,0 +1,282 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Notebook API Documentation",
+        "description": "API документация для управления записной книжкой",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/notebook": {
+            "get": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Получить список всех записей",
+                "operationId": "07d9faccef6862ea6c998ad98628713c",
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "per_page": {
+                                            "type": "integer",
+                                            "example": 5
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "fio": {
+                                                        "type": "string",
+                                                        "example": "John Doe"
+                                                    },
+                                                    "company": {
+                                                        "type": "string",
+                                                        "example": "Example Corp"
+                                                    },
+                                                    "phone": {
+                                                        "type": "string",
+                                                        "example": "123456789"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "john@example.com"
+                                                    },
+                                                    "date_of_birth": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "2000-01-01"
+                                                    },
+                                                    "photo": {
+                                                        "type": "string",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "next_page_url": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "prev_page_url": {
+                                            "type": "string",
+                                            "nullable": true
+                                        },
+                                        "total": {
+                                            "type": "integer",
+                                            "example": 10
+                                        },
+                                        "total_pages": {
+                                            "type": "integer",
+                                            "example": 2
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Страница не найдена"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Создать новую запись",
+                "operationId": "0e540f5ae11dd23bdd7a205f31752561",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "fio",
+                                    "phone",
+                                    "email"
+                                ],
+                                "properties": {
+                                    "fio": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "company": {
+                                        "type": "string",
+                                        "example": "Example Corp"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "123456789"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john@example.com"
+                                    },
+                                    "date_of_birth": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2000-01-01"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Запись создана"
+                    },
+                    "422": {
+                        "description": "Ошибка валидации"
+                    }
+                }
+            }
+        },
+        "/api/notebook/{id}": {
+            "get": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Получить запись по ID",
+                "operationId": "f36e853801c8d5cc4a29bfa458c17be8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID записи",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    },
+                    "404": {
+                        "description": "Запись не найдена"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Обновить существующую запись",
+                "operationId": "3a5b73617da560c48038c475630084b5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID записи",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "fio",
+                                    "phone",
+                                    "email"
+                                ],
+                                "properties": {
+                                    "fio": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "company": {
+                                        "type": "string",
+                                        "example": "Example Corp"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "123456789"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john@example.com"
+                                    },
+                                    "date_of_birth": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2000-01-01"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Запись обновлена"
+                    },
+                    "404": {
+                        "description": "Запись не найдена"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Notebook"
+                ],
+                "summary": "Удалить запись",
+                "operationId": "751511c13de7f2b0aad765f50f67e208",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID записи",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Запись удалена"
+                    },
+                    "404": {
+                        "description": "Запись не найдена"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Notebook",
+            "description": "Notebook"
+        }
+    ]
+}
